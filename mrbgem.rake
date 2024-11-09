@@ -1,3 +1,5 @@
+require 'pp'
+
 MRuby::Gem::Specification.new('mruby-yaml') do |spec|
   spec.license = 'MIT'
   spec.authors = 'Andrew Belt'
@@ -65,6 +67,7 @@ MRuby::Gem::Specification.new('mruby-yaml') do |spec|
             spec.cc.flags << "-DYAML_DECLARE_STATIC"
           end
         end
+        pp e
         run_command e, "./configure #{configure_opts.join(" ")}"
         run_command e, "make"
         run_command e, "make install"
